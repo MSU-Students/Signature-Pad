@@ -7,9 +7,8 @@ const routes: RouteRecordRaw[] = [
     children: [
       
       { path: 'signature', component: () => import('pages/Index.vue') },
-      { path: 'login', component: () => import('pages/SignatureLoginPage.vue') },
-      { path: '', component: () => import('pages/SignaturePad.vue') },
-      { path: 'carousel', component: () => import('pages/SignatureCarousel.vue') }
+      { path: '', component: () => import('pages/SignatureLoginPage.vue') },
+      
       
      
     ],
