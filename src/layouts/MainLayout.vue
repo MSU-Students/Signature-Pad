@@ -1,21 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <div> ASIS </div>
-
-        <q-toolbar-title> SignaturePad </q-toolbar-title>
-
-        <q-btn
-          flat
-          dense
-          round
-          label="Sign-in"
-          icon="app_registration"
-          aria-label="Sign-in"
-          to="/login"
-        />
-      </q-toolbar>
+      
     </q-header>
 
     <q-page-container>

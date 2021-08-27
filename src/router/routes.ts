@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
       { path: 'signature', component: () => import('pages/Index.vue') },
       { path: '', component: () => import('pages/SignatureLoginPage.vue') },
       
-      
+       
      
     ],
   },
