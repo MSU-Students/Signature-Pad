@@ -10,7 +10,7 @@
         >
           <q-card-section class="q-gutter-lg-md">
             <div class="text-h4 text-bold text-italic text-center q-mb-xl">
-              SIGNATURE PAD
+              <u>SIGNATURE PAD</u>
             </div>
             <div>
               <q-input
@@ -26,18 +26,17 @@
 
           <q-card-actions class="q-pr-md q-pl-md" vertical>
             <q-btn
-              rounded
               style="height: 50px"
               class="bg-red-5 text-white"
               label="LOGIN"
+              @click="login = true"
             />
             <br />
 
-            <div class="separator">or</div>
+            <div class="separator text-weight-bold">or</div>
             <br />
             <q-btn
               class="bg-indigo text-white"
-              rounded
               style="height: 50px"
               label="SIGN UP"
               @click="signup = true"
@@ -45,23 +44,62 @@
           </q-card-actions>
         </q-card>
       </div>
-      <q-dialog v-model="signup">
-        <q-card class="q-ma-lg bg-red">
+      <q-dialog v-model="signup" class="q-pm-lg">
+        <q-card bordered>
           <q-card-title>
-             <p class="text-italic ">insert your signature here.</p> 
-             </q-card-title>
+            <p class="text-italic q-ml-md"><u>insert your signature here.</u> </p>
+          </q-card-title>
+          <q-card-separator />
+          <q-card-main>
+            <div class="wrapper">
+              <canvas
+                id="canvas"
+                style="border: 1px solid black; cursor: text"
+                width="500px"
+                height="400px"
+              >
+              </canvas>
+            </div>
+            <q-card-actions>
+              <q-btn
+                flat
+                round
+                class="absolute-top-right"
+                color="indigo"
+                icon="refresh"
+              />
+              <!-- <q-icon name="refresh" class="absolute-top-right" size="50px" />*/ -->
+              <q-btn push color="indigo" label="Register" class="on-right" />
+            </q-card-actions>
+          </q-card-main>
+        </q-card>
+      </q-dialog>
+      <q-dialog v-model="login" class="q-pm-lg">
+        <q-card filled>
+          <q-card-title>
+            <p class="text-italic q-ml-md"><u>insert your signature here.</u> </p>
+          </q-card-title>
           <q-card-separator />
           <q-card-main>
             <div class="wrapper">
               <canvas
                 id="signature-pad"
                 class="signature-pad"
-                width="400"
-                height="300"
-              ></canvas>
+                width="500px"
+                height="400px"
+              >
+              </canvas>
             </div>
             <q-card-actions>
-               <q-btn push color="indigo" label="Verify" class="on-right"/>
+              <q-btn
+                flat
+                round
+                class="absolute-top-right"
+                color="indigo"
+                icon="refresh"
+              />
+              <!-- <q-icon name="refresh" class="absolute-top-right" size="50px" /> -->
+              <q-btn push color="red-5" label="Verify" class="on-right" />
             </q-card-actions>
           </q-card-main>
         </q-card>
@@ -77,14 +115,19 @@ import { Vue, Options } from 'vue-class-component';
 })
 export default class SignatureLoginPage extends Vue {
   text = '';
+  login = false;
   signup = false;
   slide = 'style';
+  navPos = 'bottom';
+
+ // A function called when mouse clicked on canva
+//  canvas?.addEventListener("click", function(e));
 }
 </script>
 
 <style scoped>
 .page {
-  background-image: url('~assets/BG.jpg');
+  background-image: url('~assets/SP.jpg');
 }
 .separator {
   display: flex;
@@ -122,3 +165,5 @@ export default class SignatureLoginPage extends Vue {
   background-color: white;
 }
 </style>
+
+
